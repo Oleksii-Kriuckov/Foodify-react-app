@@ -1,0 +1,79 @@
+.random article {
+  margin: 0px 25px 70px;
+}
+.random article h2 {
+  text-align: left;
+  margin-bottom: 25px;
+}
+.random article p {
+  text-align: justify;
+  text-indent: 20px;
+}
+
+.buttons {
+  margin-bottom: 100px;
+}
+
+button {
+  width: 100px;
+}
+
+@media screen and (min-width: 1200px) {
+  .random {
+    width: 700px;
+    margin-top: 120px;
+  }
+  .random img {
+    width: inherit;
+    height: 450px;
+  }
+  .random article {
+    margin: 55px 25px 70px;
+  }
+  .random p {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .random {
+    width: 600px;
+    margin-top: 120px;
+  }
+  .random img {
+    width: inherit;
+    height: 400px;
+  }
+  .random article {
+    margin: 55px 25px 70px;
+  }
+  .random p {
+    font-size: 16px;
+  }
+
+  a:first-child {
+    margin-right: 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .random {
+    width: 90vw;
+  }
+  .random img {
+    position: relative;
+    top: 30px;
+    width: 100%;
+    -webkit-transform: scaleY(0.7);
+            transform: scaleY(0.7);
+  }
+  .random p {
+    font-size: 16px;
+  }
+
+  a {
+    font-size: 20px;
+  }
+
+  a:first-child {
+    margin-right: 20px;
+  }
+}
