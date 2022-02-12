@@ -2,6 +2,11 @@
     text-align: center;
   }
   
+  .navbar {
+    position: fixed;
+    width: 100%;
+  }
+
   a {
     color: aquamarine;
     text-decoration: none;
@@ -38,6 +43,10 @@
   button {
     width: 100px;
   }
+
+  .favour {
+    width: 390px;
+  }
   
   @media screen and (min-width: 1200px){
     main {
@@ -46,7 +55,7 @@
 
       img {
         width: inherit;
-        height: 500px;
+        height: 450px;
       };
 
       article {
@@ -66,7 +75,7 @@
       
       img {
         width: inherit;
-        height: 450px;
+        height: 400px;
       };
 
       article {

@@ -18,7 +18,7 @@ const Random = () => {
   }, [])
 
   return <div className='d-flex flex-column align-items-center'>
-    <Main />
+    <Main/>
     <div className='buttons'>
       <Button variant='danger' className='me-3' onClick={fetchRandomRecipe}>Skip</Button>
       <Button variant='success'>Like</Button>

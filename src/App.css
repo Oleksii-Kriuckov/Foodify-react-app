@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.navbar {
+  position: fixed;
+  width: 100%;
+}
+
 a {
   color: aquamarine;
   text-decoration: none;
@@ -41,7 +46,7 @@ button {
   }
   main img {
     width: inherit;
-    height: 500px;
+    height: 450px;
   }
   main article {
     margin: 55px 25px 70px;
@@ -57,7 +62,7 @@ button {
   }
   main img {
     width: inherit;
-    height: 450px;
+    height: 400px;
   }
   main article {
     margin: 55px 25px 70px;
