@@ -1,10 +1,8 @@
-import { createStore } from "redux";
-
 const defaultState = {
     recipe: {}
 }
 
-const reducer = (state = defaultState, action) => {
+export const randomReducer = (state = defaultState, action) => {
     switch (action.type) {
         case "RandomRecipe": 
         return {...state, recipe: action.payload}
@@ -13,4 +11,3 @@ const reducer = (state = defaultState, action) => {
     }
 }
 
-export const store = createStore(reducer)

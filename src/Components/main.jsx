@@ -1,14 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-const Main = ({ children, ...props }) => {
-  const recipe = useSelector(state => state.recipe);
-
+const Main = ( props ) => {
+  // const recipe = useSelector(state => state.recipe);
+  console.log(props)
   return <main className='mx-auto favour' >
-    <img className='favourImg' src={recipe.strMealThumb} alt='dish' />
+    {/* <img className='favourImg' src={props.recipe.strMealThumb} alt='dish' /> */}
     <article >
-      <h2>{recipe.strMeal}</h2>
-      <p>{recipe.strInstructions}</p>
+      {/* <h2>{props.recipe.strMeal}</h2>
+      <p>{props.recipe.strInstructions}</p> */}
+      <p>what a fuck</p>
     </article>
   </main>;
 };

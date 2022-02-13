@@ -1,11 +1,15 @@
 import React from 'react';
 import Main from '../Components/main';
-import './styles/favourites.css'
+import { useDispatch, useSelector } from 'react-redux';
+import './styles/favourites.css';
 
 export const Favourites = () => {
+  const favourites = useSelector(state => state.favourites.favouritesRecipes)
+
   return <div className='d-flex'>
-      <Main />
-      <Main />
-      <Main />
+    {favourites.map(elem => 
+      // <Main key={elem.idMeal} recipe={elem}/>
+      console.log(elem)
+      )}
   </div>;
 };

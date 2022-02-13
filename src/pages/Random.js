@@ -7,7 +7,7 @@ import Styles from './styles/randomPageStyles.css'
 
 const Random = () => {
   const dispath = useDispatch();
-  const recipe = useSelector(state => state.recipe);
+  const recipe = useSelector(state => state.random.recipe);
 
   async function fetchRandomRecipe() {
     const responce = await axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
@@ -18,6 +18,10 @@ const Random = () => {
   useEffect(() => {
     fetchRandomRecipe()
   }, [])
+
+  const addFavourites = () => {
+    dispath({type: "AddRecipe", payload: recipe})
+  }
 
   return <div className='d-flex flex-column align-items-center'>
     
@@ -30,7 +34,7 @@ const Random = () => {
     </main>
     <div className='buttons'>
       <Button variant='danger' className='me-3' onClick={fetchRandomRecipe}>Skip</Button>
-      <Button variant='success'>Like</Button>
+      <Button variant='success' onClick={addFavourites}>Like</Button>
     </div>
   </div>
 };
