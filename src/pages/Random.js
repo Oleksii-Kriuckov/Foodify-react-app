@@ -8,6 +8,7 @@ import Styles from './styles/randomPageStyles.css'
 const Random = () => {
   const dispath = useDispatch();
   const recipe = useSelector(state => state.random.recipe);
+  const favourites = useSelector(state => state.favourites.favouritesRecipes)
 
   async function fetchRandomRecipe() {
     const responce = await axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
@@ -19,12 +20,15 @@ const Random = () => {
     fetchRandomRecipe()
   }, [])
 
-  const addFavourites = () => {
-    dispath({type: "AddRecipe", payload: recipe})
+  const addFavourites = (id) => {
+    if (favourites.every(el => el.idMeal !== id)) {
+      dispath({ type: "AddRecipe", payload: recipe })
+    }
+    console.log(favourites)
   }
 
   return <div className='d-flex flex-column align-items-center'>
-    
+
     <main className='mx-auto random' styles={Styles}>
       <img src={recipe.strMealThumb} alt='dish' />
       <article >
@@ -34,7 +38,7 @@ const Random = () => {
     </main>
     <div className='buttons'>
       <Button variant='danger' className='me-3' onClick={fetchRandomRecipe}>Skip</Button>
-      <Button variant='success' onClick={addFavourites}>Like</Button>
+      <Button variant='success' onClick={() => addFavourites(recipe.idMeal)}>Like</Button>
     </div>
   </div>
 };

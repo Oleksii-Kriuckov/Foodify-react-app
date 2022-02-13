@@ -19,3 +19,8 @@ a:hover {
 a:first-child {
   margin-right: 25px;
 }
+
+.no_dishes {
+  position: relative;
+  top: 70px;
+}
