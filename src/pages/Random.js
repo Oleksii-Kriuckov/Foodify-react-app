@@ -24,7 +24,6 @@ const Random = () => {
     if (favourites.every(el => el.idMeal !== id)) {
       dispath({ type: "AddRecipe", payload: recipe })
     }
-    console.log(favourites)
   }
 
   return <div className='d-flex flex-column align-items-center'>

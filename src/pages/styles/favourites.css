@@ -1,5 +1,5 @@
 .favour {
-  width: 390px;
+  width: 320px;
   margin-top: 100px;
 }
 .favour img {
@@ -9,11 +9,15 @@
 .favour h2 {
   text-align: left;
   margin-bottom: 25px;
+  padding: 0px 20px;
 }
 .favour article {
-  margin: 55px 25px 70px;
+  margin: 55px 0px 70px;
 }
 .favour p {
   font-size: 18px;
   text-align: justify;
+  height: 400px;
+  overflow-y: scroll;
+  padding: 0px 20px;
 }
