@@ -17,14 +17,14 @@ const Random = () => {
   }
 
   useEffect(() => {
-    fetchRandomRecipe()
+    fetchRandomRecipe();
   }, [])
 
   const addFavourites = (id) => {
     if (favourites.every(el => el.idMeal !== id)) {
       dispath({ type: "AddRecipe", payload: recipe })
+      localStorage.data = JSON.stringify([...favourites, recipe]);
     }
-    
   }
 
   return <div className='d-flex flex-column align-items-center'>

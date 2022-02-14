@@ -7,6 +7,8 @@ export const favouritesReducer = (state = defaultState, action) => {
         case "AddRecipe": 
         return {...state, favouritesRecipes: [...state.favouritesRecipes, action.payload]}
 
+        case "SetFavourRecipes":
+        return {...state, favouritesRecipes: action.payload}
         default: return state;
     }
 }

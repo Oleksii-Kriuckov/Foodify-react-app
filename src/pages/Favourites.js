@@ -1,13 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Main from '../Components/main';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './styles/favourites.css';
 import { Button, Container } from 'react-bootstrap';
 import AddRecipeModal from '../Components/modal';
 
 export const Favourites = () => {
   const favourites = useSelector(state => state.favourites.favouritesRecipes);
+  const dispath = useDispatch();
   const [modalShow, setModalShow] = React.useState(false);
+
+  useEffect(() => {
+    dispath({type: "SetFavourRecipes", payload: JSON.parse(localStorage.data) })
+  }, [])
+  
 
   return <div >
     <Button
