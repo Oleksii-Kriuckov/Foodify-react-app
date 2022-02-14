@@ -21,3 +21,39 @@
   overflow-y: scroll;
   padding: 0px 20px;
 }
+
+#placeholderImg {
+  width: 320px;
+  height: 250px;
+  background-color: darkgrey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #000;
+}
+
+.no_dishes {
+  position: relative;
+  top: 70px;
+}
+
+#open_modal {
+  position: fixed;
+  z-index: 111;
+  top: 6px;
+  right: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 2px 8px;
+}
+
+#add_dish {
+  width: 100%;
+}

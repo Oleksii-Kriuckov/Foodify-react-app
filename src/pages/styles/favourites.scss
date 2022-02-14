@@ -1,9 +1,12 @@
+$blockWidth: 320px;
+$imgHeight: 250px;
+
 .favour {
-    width: 320px;
+    width: $blockWidth;
     margin-top: 100px;
 
     img {
-        height: 250px;
+        height: $imgHeight;
         width: inherit;
       };
 
@@ -26,3 +29,32 @@
       }
     
   }
+
+#placeholderImg {
+  width: $blockWidth;
+  height: $imgHeight;
+  background-color: darkgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+}
+  
+.no_dishes {
+  position: relative;
+  top: 70px;
+}
+
+#open_modal {
+  position: fixed;
+  z-index: 111;
+  top: 6px;
+  right: 20px;
+  width: fit-content;
+  padding: 2px 8px;
+}
+
+#add_dish {
+  width: 100%;
+  
+}
