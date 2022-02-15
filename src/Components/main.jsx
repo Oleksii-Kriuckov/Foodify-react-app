@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import PlaceholderImg from './PlaceholderImg';
 
 const Main = ({ recipe }) => {
-
+  
   return <main className='mx-auto favour' >
     {(recipe.strMealThumb) ?
       <img className='favourImg' src={recipe.strMealThumb} alt='dish' />

@@ -17,18 +17,14 @@ $imgHeight: 250px;
 
      }
       article {
-        margin-top: 55px;
+        margin-top: 30px;
       };
 
       p {
       font-size: 18px;
       text-align: justify;
-
-      @if (height > 400px) {
-        height: 400px;
+      height: 400px;
       overflow-y: scroll;
-      }
-      
       padding: 0px 20px;
       }
     
