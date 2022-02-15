@@ -15,7 +15,7 @@ const addNewRecipe = () => {
         idMeal: Date.now()
     }
     dispath({ type: "AddRecipe", payload: newRecipe })
-
+    localStorage.data = JSON.stringify([...favourites, newRecipe]);
     props.onHide()
 }
 

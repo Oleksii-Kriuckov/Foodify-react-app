@@ -11,7 +11,9 @@ export const Favourites = () => {
   const [modalShow, setModalShow] = React.useState(false);
 
   useEffect(() => {
-    dispath({type: "SetFavourRecipes", payload: JSON.parse(localStorage.data) })
+    if(localStorage.data) {
+      dispath({type: "SetFavourRecipes", payload: JSON.parse(localStorage.data) })
+    }
   }, [])
   
 
