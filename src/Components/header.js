@@ -3,7 +3,7 @@ import { Navbar, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
 const Header = () => {
-        return <Navbar bg="primary" variant="dark" expand="sm">
+        return <Navbar bg="primary" variant="dark" expand="sm" >
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
                 <Navbar.Collapse id="basic-navbar-nav" className='ms-2'>
@@ -13,7 +13,6 @@ const Header = () => {
                         </Container>
                 </Navbar.Collapse>
         </Navbar>
-
 };
 
 export default Header;

@@ -3,7 +3,7 @@ $imgHeight: 250px;
 
 .favour {
     width: $blockWidth;
-    margin-top: 100px;
+    margin-top: 50px;
 
     img {
         height: $imgHeight;
@@ -17,14 +17,18 @@ $imgHeight: 250px;
 
      }
       article {
-        margin: 55px 0px 70px;
+        margin-top: 55px;
       };
 
       p {
       font-size: 18px;
       text-align: justify;
-      height: 400px;
+
+      @if (height > 400px) {
+        height: 400px;
       overflow-y: scroll;
+      }
+      
       padding: 0px 20px;
       }
     
@@ -38,6 +42,7 @@ $imgHeight: 250px;
   justify-content: center;
   align-items: center;
   border: 1px solid #000;
+  font-size: 24px
 }
   
 .no_dishes {

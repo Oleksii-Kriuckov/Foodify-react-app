@@ -1,6 +1,5 @@
 import React from 'react';
 import PlaceholderImg from './PlaceholderImg';
-// import { useSelector } from 'react-redux';
 
 const Main = ({ recipe }) => {
 

@@ -1,6 +1,6 @@
 .favour {
   width: 320px;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .favour img {
   height: 250px;
@@ -12,7 +12,7 @@
   padding: 0px 20px;
 }
 .favour article {
-  margin: 55px 0px 70px;
+  margin-top: 55px;
 }
 .favour p {
   font-size: 18px;
@@ -36,6 +36,7 @@
       -ms-flex-align: center;
           align-items: center;
   border: 1px solid #000;
+  font-size: 24px;
 }
 
 .no_dishes {

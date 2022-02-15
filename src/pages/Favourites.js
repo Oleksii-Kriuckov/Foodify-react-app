@@ -17,7 +17,7 @@ export const Favourites = () => {
   }, [])
   
 
-  return <div >
+  return <div>
     <Button
       variant='secondary'
       id='open_modal'
@@ -26,13 +26,16 @@ export const Favourites = () => {
       Add custom dish
     </Button>
 
-    <Container className='d-flex justify-content-center flex-wrap' style={{ gap: 20 }}>
-      {(favourites.length !== 0) ?
+    <Container className='d-flex' style={{marginBottom:50}}>
+      <div className='d-flex justify-content-center flex-wrap' style={{ gap: 20, marginTop:50 }}>
+        {(favourites.length !== 0) ?
         favourites.map(elem =>
           <Main key={elem.idMeal} recipe={elem} />
         ) :
         <h1 className='no_dishes'>There is no favourites dishes</h1>
       }
+      </div>
+      
     </Container>
 
     <AddRecipeModal show={modalShow} onHide={() => setModalShow(false)} />
