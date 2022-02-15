@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Main from '../Components/main';
 import { useSelector, useDispatch } from 'react-redux';
 import './styles/favourites.css';
@@ -11,11 +11,10 @@ export const Favourites = () => {
   const [modalShow, setModalShow] = React.useState(false);
 
   useEffect(() => {
-    if(localStorage.data) {
-      dispath({type: "SetFavourRecipes", payload: JSON.parse(localStorage.data) })
+    if (localStorage.data) {
+      dispath({ type: "SetFavourRecipes", payload: JSON.parse(localStorage.data) })
     }
   }, [])
-  
 
   return <div>
     <Button
@@ -26,16 +25,16 @@ export const Favourites = () => {
       Add custom dish
     </Button>
 
-    <Container className='d-flex' style={{marginBottom:50}}>
-      <div className='d-flex justify-content-center flex-wrap' style={{ gap: 20, marginTop:50 }}>
-        {(favourites.length !== 0) ?
+    <Container
+      className='d-flex flex-wrap justify-content-center w-100'
+      id='wrapper'
+    >
+      {(favourites.length !== 0) ?
         favourites.map(elem =>
           <Main key={elem.idMeal} recipe={elem} />
         ) :
         <h1 className='no_dishes'>There is no favourites dishes</h1>
       }
-      </div>
-      
     </Container>
 
     <AddRecipeModal show={modalShow} onHide={() => setModalShow(false)} />

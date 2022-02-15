@@ -4,6 +4,8 @@ $imgHeight: 250px;
 .favour {
     width: $blockWidth;
     margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
 
     img {
         height: $imgHeight;
@@ -23,8 +25,8 @@ $imgHeight: 250px;
       p {
       font-size: 18px;
       text-align: justify;
-      height: 400px;
-      overflow-y: scroll;
+      // height: 400px;
+      // overflow-y: scroll;
       padding: 0px 20px;
       }
     
@@ -41,6 +43,12 @@ $imgHeight: 250px;
   font-size: 24px
 }
   
+#wrapper {
+  gap: 30px;
+  padding-top: 50px;
+  margin-bottom: 50px;
+}
+
 .no_dishes {
   position: relative;
   top: 70px;
@@ -49,7 +57,7 @@ $imgHeight: 250px;
 #open_modal {
   position: fixed;
   z-index: 111;
-  top: 6px;
+  top: 10px;
   right: 20px;
   width: fit-content;
   padding: 2px 8px;
@@ -58,4 +66,28 @@ $imgHeight: 250px;
 #add_dish {
   width: 100%;
   
+}
+
+@media screen and (max-width: 576px){
+  .favour {
+    width: 90vw;
+    margin-left: 20px;
+    margin-right: 20px;
+    img {
+      height: calc(90vw*2/3);
+    }
+  }
+  #open_modal {
+    top: 16px;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .favour {
+    width: 75vw;
+
+    img {
+      height: calc(75vw*2/3);
+    }
+  }
 }

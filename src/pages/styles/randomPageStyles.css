@@ -10,6 +10,10 @@
   text-indent: 20px;
 }
 
+a {
+  font-size: 20px;
+}
+
 .buttons {
   margin-bottom: 100px;
 }
@@ -57,6 +61,7 @@ button {
 @media screen and (max-width: 767px) {
   .random {
     width: 90vw;
+    margin-top: 30px;
   }
   .random img {
     position: relative;
@@ -67,10 +72,6 @@ button {
   }
   .random p {
     font-size: 16px;
-  }
-
-  a {
-    font-size: 20px;
   }
 
   a:first-child {

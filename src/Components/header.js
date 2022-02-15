@@ -9,7 +9,7 @@ const Header = () => {
         return <Navbar bg="primary" variant="dark" expand="sm" >
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-                <Navbar.Collapse id="basic-navbar-nav" className='ms-2'>
+                <Navbar.Collapse id="basic-navbar-nav">
                         <Container className='d-flex justify-content-md-center justify-content-sm-start' >
                                 <Link to="/" className={matchMain ? 'active' : null}>Random dish</Link>
                                 <Link to="/favourites" className={matchFavour ? 'active' : null}>Favourites</Link>

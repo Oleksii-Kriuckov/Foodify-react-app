@@ -3,7 +3,7 @@ import PlaceholderImg from './PlaceholderImg';
 
 const Main = ({ recipe }) => {
   
-  return <main className='mx-auto favour' >
+  return <main className='favour' >
     {(recipe.strMealThumb) ?
       <img className='favourImg' src={recipe.strMealThumb} alt='dish' />
       : <PlaceholderImg />
