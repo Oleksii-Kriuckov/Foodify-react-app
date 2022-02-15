@@ -35,7 +35,7 @@ const Random = () => {
     </main>
 
     <div className='buttons'>
-      <Button variant='danger' className='me-3' onClick={fetchRandomRecipe}>Skip</Button>
+    <a href="#"><Button variant='danger' className='me-3' onClick={fetchRandomRecipe}>Skip</Button></a>
       <Button variant='success' onClick={() => addFavourites(recipe.idMeal)}>Like</Button>
     </div>
   </div>
