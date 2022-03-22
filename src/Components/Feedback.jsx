@@ -1,11 +1,9 @@
 import React from 'react'
 import { Alert } from 'react-bootstrap'
-import { Transition } from 'react-transition-group';
 
-const Feedback = (props) => {
-
+const Feedback = () => {
     return (
-        <Alert id='feedback' variant="primary" style={props.style}>
+        <Alert className='feedback' variant="success">
             Add to favourites
         </Alert>
     )

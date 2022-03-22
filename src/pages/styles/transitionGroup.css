@@ -1,10 +1,26 @@
-#feedback {
-    /* position: absolute;
+.feedback {
+    position: absolute;
     top: -45px;
     right: -26px;
-    padding: 5px 10px; */
+    padding: 5px 10px;
     /* transition: opacity 500ms ease-in-out;
     opacity: 0 */
   }
 
- 
+  .alert-enter {
+    opacity: 0;
+  }
+
+  .alert-enter-active {
+    opacity: 1;
+    transition: all 1000ms;
+  }
+
+  .alert-exit {
+    opacity: 1;
+  }
+
+  .alert-exit-active {
+    opacity: 0;
+    transition: all 1000ms;
+  }

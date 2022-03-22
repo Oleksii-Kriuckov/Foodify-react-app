@@ -3,9 +3,9 @@ import axios from 'axios'
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Styles from './styles/randomPageStyles.css'
+import Feedback from '../Components/Feedback';
+import { CSSTransition } from 'react-transition-group';
 import { Alert } from 'react-bootstrap'
-// import Feedback from '../Components/Feedback';
-import { Transition, CSSTransition } from 'react-transition-group';
 import './styles/transitionGroup.css'
 
 const Random = () => {
@@ -33,22 +33,6 @@ const Random = () => {
     }
   }
 
-  const defaultStyle = {
-    position: 'absolute',
-    top: -45,
-    right: -26,
-    padding: '5px 10px',
-    transition: `opacity 500ms ease-in-out`,
-    opacity: 0,
-  }
-
-  const transitionStyles = {
-    entering: { opacity: 1 },
-    entered: { opacity: 1 },
-    exiting: { opacity: 0 },
-    exited: { opacity: 0 },
-  };
-
   return <div className='d-flex flex-column align-items-center'>
     <main className='mx-auto random' styles={Styles}>
       <img src={recipe.strMealThumb} alt='dish' />
@@ -59,18 +43,10 @@ const Random = () => {
     </main>
 
     <div className='buttons position-relative'>
-      {showFeedBack ?
-        <Transition in={showFeedBack} timeout={500}>
-          {state => (
-
-            <Alert variant="primary" style={{ ...defaultStyle, ...transitionStyles[state] }}>
-              Add to favourites
-            </Alert>
-          )}
-        </Transition>
-        : null}
-      {/* <a href="#"></a> */}
-      <Button variant='danger' className='me-3' onClick={fetchRandomRecipe}>Skip</Button>
+        <CSSTransition in={showFeedBack} timeout={1000} classNames="alert"  unmountOnExit>
+            <Feedback/>
+        </CSSTransition>
+      <Button href="#" variant='danger' className='me-3' onClick={fetchRandomRecipe}>Skip</Button>
       <Button variant='success' onClick={() => addFavourites(recipe.idMeal)}>Like</Button>
     </div>
   </div>
