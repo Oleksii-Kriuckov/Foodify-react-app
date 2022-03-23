@@ -5,7 +5,6 @@ import PlaceholderImg from './PlaceholderImg';
 
 const Main = ({ recipe }) => {
   const dispath = useDispatch();
-  // const favourites = useSelector(state => state.favourites.favouritesRecipes);
 
   const removeRecipe = () => {
     dispath({type: "RemoveRecipe", payload: recipe.idMeal})

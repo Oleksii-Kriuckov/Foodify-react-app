@@ -4,7 +4,7 @@ const defaultState = {
 
 export const randomReducer = (state = defaultState, action) => {
     switch (action.type) {
-        case "RandomRecipe": 
+        case "renderRandomRecipe": 
         return {...state, recipe: action.payload}
 
         default: return state;

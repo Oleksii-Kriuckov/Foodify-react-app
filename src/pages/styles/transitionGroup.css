@@ -13,7 +13,7 @@
 
   .alert-enter-active {
     opacity: 1;
-    transition: all 1000ms;
+    transition: all 500ms;
   }
 
   .alert-exit {
@@ -22,5 +22,5 @@
 
   .alert-exit-active {
     opacity: 0;
-    transition: all 1000ms;
+    transition: all 500ms;
   }

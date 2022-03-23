@@ -21,7 +21,7 @@ function AddRecipeModal(props) {
     }
 
     const validationDescription = () => {
-        if (dishDescription.length > 50) {
+        if (dishDescription.length > 100) {
             setIsValidDescription(true)
         } else setIsValidDescription(false);
         setValidation(false);
@@ -80,7 +80,7 @@ function AddRecipeModal(props) {
                         }
                         <Form.Control
                             value={dishTitle}
-                            required min="1" max='50'
+                            required min="1"
                             type="text"
                             placeholder="Dish title"
                             onChange={e => setDishTitle(e.target.value)}
@@ -96,7 +96,7 @@ function AddRecipeModal(props) {
                         }
                         <Form.Control as="textarea" placeholder="Dish description..."
                             value={dishDescription}
-                            rows={5} min='50'
+                            rows={5} min='100'
                             onChange={e => setDishDescription(e.target.value)}
                             onBlur={validationDescription}
                         />

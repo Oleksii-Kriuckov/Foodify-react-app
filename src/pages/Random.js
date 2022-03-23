@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import Styles from './styles/randomPageStyles.css'
 import Feedback from '../Components/Feedback';
 import { CSSTransition } from 'react-transition-group';
-import { Alert } from 'react-bootstrap'
 import './styles/transitionGroup.css'
 
 const Random = () => {
@@ -13,11 +12,21 @@ const Random = () => {
   const favourites = useSelector(state => state.favourites.favouritesRecipes)
   const recipe = useSelector(state => state.random.recipe);
 
-  const [showFeedBack, setShowFeedBack] = useState(false)
+  const [showFeedBack, setShowFeedBack] = useState(false);
+  const [isResponce, setIsResponce] = useState(false);
+  const [isError, setIsError] = useState('');
 
   async function fetchRandomRecipe() {
     const responce = await axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
-    dispath({ type: "RandomRecipe", payload: responce.data.meals[0] })
+      .then((responce) => {
+        dispath({ type: "renderRandomRecipe", payload: responce.data.meals[0] });
+        setIsResponce(true)
+      })
+      .catch((error) => {
+        setIsResponce(false);
+        setIsError(error.toJSON().message);
+      })
+      
   }
 
   useEffect(() => {
@@ -29,12 +38,14 @@ const Random = () => {
       setShowFeedBack(true)
       dispath({ type: "AddRecipe", payload: recipe })
       localStorage.data = JSON.stringify([...favourites, recipe]);
-      setTimeout(() => setShowFeedBack(false), 2000);
+      setTimeout(() => setShowFeedBack(false), 1000);
     }
   }
 
-  return <div className='d-flex flex-column align-items-center'>
-    <main className='mx-auto random' styles={Styles}>
+  return (<div className='d-flex flex-column align-items-center'>
+    {isResponce ? 
+    <>
+      <main className='mx-auto random' styles={Styles}>
       <img src={recipe.strMealThumb} alt='dish' />
       <article >
         <h2>{recipe.strMeal}</h2>
@@ -43,13 +54,16 @@ const Random = () => {
     </main>
 
     <div className='buttons position-relative'>
-        <CSSTransition in={showFeedBack} timeout={1000} classNames="alert"  unmountOnExit>
+        <CSSTransition in={showFeedBack} timeout={500} classNames="alert"  unmountOnExit>
             <Feedback/>
         </CSSTransition>
       <Button href="#" variant='danger' className='me-3' onClick={fetchRandomRecipe}>Skip</Button>
       <Button variant='success' onClick={() => addFavourites(recipe.idMeal)}>Like</Button>
     </div>
+    </>
+      : <h1 style={{paddingTop: 70}}>{isError}</h1>}
   </div>
+  )
 };
 
 export default Random;
