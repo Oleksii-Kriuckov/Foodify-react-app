@@ -1,9 +1,11 @@
 import React from 'react';
-import { Navbar, Container } from 'react-bootstrap'
-import { NavLink, useMatch  } from 'react-router-dom';
+import { Navbar, Container, Button } from 'react-bootstrap'
+import { NavLink, useMatch } from 'react-router-dom';
+import Modal from './modal';
 
 const Header = () => {
         const matchFavour = useMatch('/favourites');
+        const [modalShow, setModalShow] = React.useState(false);
 
         return (
                 <Navbar bg="primary" variant="dark" expand="sm" >
@@ -15,6 +17,17 @@ const Header = () => {
                                         <NavLink to="/favourites" >Favourites</NavLink>
                                 </Container>
                         </Navbar.Collapse>
+                        {matchFavour ?
+                                <Button
+                                        variant='secondary'
+                                        id='open_modal'
+                                        onClick={() => setModalShow(true)}
+                                >
+                                        Add custom dish
+                                </Button>
+                                : null
+                        }
+                        <Modal show={modalShow} onHide={() => setModalShow(false)} />
                 </Navbar>
         )
 };

@@ -26,7 +26,6 @@ const Random = () => {
         setIsResponce(false);
         setIsError(error.toJSON().message);
       })
-      
   }
 
   useEffect(() => {

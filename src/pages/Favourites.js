@@ -2,13 +2,12 @@ import React, { useEffect } from 'react';
 import Main from '../Components/main';
 import { useSelector, useDispatch } from 'react-redux';
 import './styles/favourites.css';
-import { Button, Container } from 'react-bootstrap';
-import AddRecipeModal from '../Components/modal';
+import { Container } from 'react-bootstrap';
 
 export const Favourites = () => {
   const favourites = useSelector(state => state.favourites.favouritesRecipes);
   const dispath = useDispatch();
-  const [modalShow, setModalShow] = React.useState(false);
+
 
   useEffect(() => {
     if (localStorage.data) {
@@ -17,13 +16,6 @@ export const Favourites = () => {
   }, [])
 
   return <div>
-    <Button
-      variant='secondary'
-      id='open_modal'
-      onClick={() => setModalShow(true)}
-    >
-      Add custom dish
-    </Button>
 
     <Container
       className='d-flex flex-wrap justify-content-center w-100'
@@ -37,6 +29,5 @@ export const Favourites = () => {
       }
     </Container>
 
-    <AddRecipeModal show={modalShow} onHide={() => setModalShow(false)} />
   </div>;
 };
