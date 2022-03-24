@@ -8,15 +8,14 @@ export const Favourites = () => {
   const favourites = useSelector(state => state.favourites.favouritesRecipes);
   const dispath = useDispatch();
 
-
   useEffect(() => {
     if (localStorage.data) {
       dispath({ type: "SetFavourRecipes", payload: JSON.parse(localStorage.data) })
     }
   }, [])
 
-  return <div>
-
+  return (
+  <div>
     <Container
       className='d-flex flex-wrap justify-content-center w-100'
       id='wrapper'
@@ -28,6 +27,5 @@ export const Favourites = () => {
         <h1 className='no_dishes'>There is no favourites dishes</h1>
       }
     </Container>
-
-  </div>;
-};
+  </div>
+  )};
