@@ -11,11 +11,12 @@ const ConfirmModal = ({onHide, recipe, ...props}) => {
         localStorage.data = JSON.stringify(data.filter(elem => elem.idMeal !== recipe.idMeal));
         onHide();
       }
+      
     return (
         <div>
             <Modal {...props} onHide={onHide} >
             <CloseButton className='mt-3 ms-auto me-3' onClick={onHide}/>
-                <Modal.Body>Are you sure?</Modal.Body>
+                <Modal.Body className='fs-5'>Are you sure?</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={onHide}>
                         Close

@@ -90,7 +90,7 @@ function AddRecipeModal(props) {
                     <Form.Group className="mb-3" controlId="">
                         {(validation && !isValidDescription) ?
                             <h5 style={{ color: "red" }}>
-                                Description must to have at least 50 characters
+                                Description must to have at least 100 characters
                             </h5>
                             : null
                         }
