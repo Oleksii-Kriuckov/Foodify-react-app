@@ -7,9 +7,10 @@ $imgHeight: 250px;
     margin-left: auto;
     margin-right: auto;
 
-    img {
+    img, #placeholderImg {
         height: $imgHeight;
         width: inherit;
+        max-width: 600px;
       };
 
       h2 {
@@ -25,16 +26,12 @@ $imgHeight: 250px;
       p {
       font-size: 18px;
       text-align: justify;
-      // height: 400px;
-      // overflow-y: scroll;
       padding: 0px 20px;
       }
     
   }
 
 #placeholderImg {
-  width: $blockWidth;
-  height: $imgHeight;
   background-color: darkgrey;
   display: flex;
   justify-content: center;
@@ -73,7 +70,8 @@ $imgHeight: 250px;
     width: 90vw;
     margin-left: 20px;
     margin-right: 20px;
-    img {
+    
+    img, #placeholderImg {
       height: calc(90vw*2/3);
     }
   }
@@ -86,8 +84,19 @@ $imgHeight: 250px;
   .favour {
     width: 75vw;
 
-    img {
+    img, #placeholderImg {
       height: calc(75vw*2/3);
+    }
+  }
+}
+
+@media screen and (min-width: 993px) {
+  #twoRecipeOnPageStyles {
+    width: 37vw;
+    max-width: 600px;
+    img, #placeholderImg {
+      height: calc(37vw*2/3);
+      max-height: 400px;
     }
   }
 }

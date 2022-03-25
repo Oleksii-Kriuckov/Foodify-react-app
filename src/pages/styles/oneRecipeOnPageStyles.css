@@ -1,11 +1,11 @@
-.random article {
+.oneRecipeOnPageS article {
   margin: 0px 25px 70px;
 }
-.random article h2 {
+.oneRecipeOnPageS article h2 {
   text-align: left;
   margin-bottom: 25px;
 }
-.random article p {
+.oneRecipeOnPageS article p {
   text-align: justify;
   text-indent: 20px;
 }
@@ -21,34 +21,34 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .random {
+  .oneRecipeOnPageS {
     width: 700px;
     margin-top: 120px;
   }
-  .random img {
+  .oneRecipeOnPageS img {
     width: inherit;
     height: 450px;
   }
-  .random article {
+  .oneRecipeOnPageS article {
     margin: 55px 25px 70px;
   }
-  .random p {
+  .oneRecipeOnPageS p {
     font-size: 18px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-  .random {
+  .oneRecipeOnPageS {
     width: 600px;
     margin-top: 120px;
   }
-  .random img {
+  .oneRecipeOnPageS img {
     width: inherit;
     height: 400px;
   }
-  .random article {
+  .oneRecipeOnPageS article {
     margin: 55px 25px 70px;
   }
-  .random p {
+  .oneRecipeOnPageS p {
     font-size: 16px;
   }
 
@@ -57,19 +57,23 @@
   }
 }
 @media screen and (max-width: 767px) {
-  .random {
+  .oneRecipeOnPageS {
     width: 90vw;
     margin-top: 30px;
   }
-  .random img {
+  .oneRecipeOnPageS img {
     position: relative;
     top: 30px;
     width: 100%;
     -webkit-transform: scaleY(0.7);
             transform: scaleY(0.7);
   }
-  .random p {
+  .oneRecipeOnPageS p {
     font-size: 16px;
+  }
+
+  a {
+    font-size: 20px;
   }
 
   a:first-child {

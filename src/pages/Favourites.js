@@ -22,7 +22,7 @@ export const Favourites = () => {
     >
       {(favourites.length !== 0) ?
         favourites.map(elem =>
-          <Main key={elem.idMeal} recipe={elem} />
+          <Main key={elem.idMeal} recipe={elem} length={favourites.length}/>
         ) :
         <h1 className='no_dishes'>There is no favourites dishes</h1>
       }

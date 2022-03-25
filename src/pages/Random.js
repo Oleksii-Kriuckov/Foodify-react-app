@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import Styles from './styles/randomPageStyles.css'
 import Feedback from '../Components/Feedback';
 import { CSSTransition } from 'react-transition-group';
+import Styles from './styles/oneRecipeOnPageStyles.css'
 import './styles/transitionGroup.css'
 
 const Random = () => {
@@ -42,25 +42,25 @@ const Random = () => {
   }
 
   return (<div className='d-flex flex-column align-items-center'>
-    {isResponce ? 
-    <>
-      <main className='mx-auto random' styles={Styles}>
-      <img src={recipe.strMealThumb} alt='dish' />
-      <article >
-        <h2>{recipe.strMeal}</h2>
-        <p>{recipe.strInstructions}</p>
-      </article>
-    </main>
+    {isResponce ?
+      <>
+        <main className='mx-auto oneRecipeOnPageS' styles={Styles}>
+          <img src={recipe.strMealThumb} alt='dish' />
+          <article >
+            <h2>{recipe.strMeal}</h2>
+            <p>{recipe.strInstructions}</p>
+          </article>
+        </main>
 
-    <div className='buttons position-relative'>
-        <CSSTransition in={showFeedBack} timeout={500} classNames="alert"  unmountOnExit>
-            <Feedback/>
-        </CSSTransition>
-      <Button href="#" variant='danger' className='me-3' onClick={fetchRandomRecipe}>Skip</Button>
-      <Button variant='success' onClick={() => addFavourites(recipe.idMeal)}>Like</Button>
-    </div>
-    </>
-      : <h1 style={{paddingTop: 70}}>{isError}</h1>}
+        <div className='buttons position-relative'>
+          <CSSTransition in={showFeedBack} timeout={700} classNames="alert" unmountOnExit>
+            <Feedback />
+          </CSSTransition>
+          <Button href="#" variant='danger' className='me-3' onClick={fetchRandomRecipe}>Skip</Button>
+          <Button variant='success' onClick={() => addFavourites(recipe.idMeal)}>Like</Button>
+        </div>
+      </>
+      : <h1 style={{ paddingTop: 70 }}>{isError}</h1>}
   </div>
   )
 };
