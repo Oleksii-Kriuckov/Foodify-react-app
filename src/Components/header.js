@@ -12,7 +12,7 @@ const Header = () => {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
                         <Navbar.Collapse id="basic-navbar-nav">
-                                <Container className='d-flex justify-content-md-center justify-content-sm-start' >
+                                <Container className='d-flex mt-2 mt-sm-0 justify-content-md-center justify-content-sm-start' >
                                         <NavLink to="/" >Random dish</NavLink>
                                         <NavLink to="/favourites" >Favourites</NavLink>
                                 </Container>
