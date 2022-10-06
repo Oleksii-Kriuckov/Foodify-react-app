@@ -2,34 +2,33 @@ $blockWidth: 320px;
 $imgHeight: 250px;
 
 .favour {
-    width: $blockWidth;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
+  width: $blockWidth;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
 
-    img, #placeholderImg {
-        height: $imgHeight;
-        width: inherit;
-        max-width: 600px;
-      };
-
-      h2 {
-        text-align: left;
-        margin-bottom: 25px;
-        padding: 0px 20px;
-
-     }
-      article {
-        margin-top: 30px;
-      };
-
-      p {
-      font-size: 18px;
-      text-align: justify;
-      padding: 0px 20px;
-      }
-    
+  img,
+  #placeholderImg {
+    height: $imgHeight;
+    width: inherit;
+    max-width: 600px;
   }
+
+  h2 {
+    text-align: left;
+    margin-bottom: 25px;
+    padding: 0px 20px;
+  }
+  article {
+    margin-top: 30px;
+  }
+
+  p {
+    font-size: 18px;
+    text-align: justify;
+    padding: 0px 20px;
+  }
+}
 
 #placeholderImg {
   background-color: darkgrey;
@@ -37,9 +36,10 @@ $imgHeight: 250px;
   justify-content: center;
   align-items: center;
   border: 1px solid #000;
-  font-size: 24px
+  height: calc(700px * 2 / 3);
+  font-size: 24px;
 }
-  
+
 #wrapper {
   gap: 30px;
   padding-top: 50px;
@@ -62,17 +62,17 @@ $imgHeight: 250px;
 
 #add_dish {
   width: 100%;
-  
 }
 
-@media screen and (max-width: 576px){
+@media screen and (max-width: 576px) {
   .favour {
     width: 90vw;
     margin-left: 20px;
     margin-right: 20px;
-    
-    img, #placeholderImg {
-      height: calc(90vw*2/3);
+
+    img,
+    #placeholderImg {
+      height: calc(90vw * 2 / 3);
     }
   }
   #open_modal {
@@ -84,8 +84,9 @@ $imgHeight: 250px;
   .favour {
     width: 75vw;
 
-    img, #placeholderImg {
-      height: calc(75vw*2/3);
+    img,
+    #placeholderImg {
+      height: calc(75vw * 2 / 3);
     }
   }
 }
@@ -94,8 +95,9 @@ $imgHeight: 250px;
   #twoRecipeOnPageStyles {
     width: 37vw;
     max-width: 600px;
-    img, #placeholderImg {
-      height: calc(37vw*2/3);
+    img,
+    #placeholderImg {
+      height: calc(37vw * 2 / 3);
       max-height: 400px;
     }
   }

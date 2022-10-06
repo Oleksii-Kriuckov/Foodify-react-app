@@ -25,6 +25,7 @@ export const useModal = () => {
         //     setIsValidTitle(false);
         //     setIsValidDescription(false);
         // }
+        // console.log("addNewRecipe")
     }
 
     const closeModal = () => {

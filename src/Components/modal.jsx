@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Modal, Button, Form, CloseButton } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from "../Hooks/useModal";
+import { useForm } from 'react-hook-form'
 
 export function ModalWindow(props) {
     const dispatch = useDispatch();
@@ -10,76 +11,63 @@ export function ModalWindow(props) {
     const dishDescription = useSelector(state => state.formData.dishDescription)
     const { addNewRecipe, closeModal } = useModal();
 
-    const [isValidTitle, setIsValidTitle] = useState(false)
-    const [isValidDescription, setIsValidDescription] = useState(false)
-    const [validation, setValidation] = useState(false)
-
-    const validationTitle = () => {
-        if (dishTitle) {
-            setIsValidTitle(true)
-        } else { setIsValidTitle(false) }
-        setValidation(false);
-    }
-
-    const validationDescription = () => {
-        if (dishDescription.length > 100) {
-            setIsValidDescription(true)
-        } else setIsValidDescription(false);
-        setValidation(false);
-    }
-
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
     return (
         <Modal
-            {...props}
-            dialogClassName="modal-50w"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-            show={showModal}
-            onHide={closeModal}
+        {...props}
+        dialogClassName="modal-50w"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        show={showModal}
+        onHide={closeModal}
         >
             <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Add custom dish
                 </Modal.Title>
-                <CloseButton onClick={closeModal} />
+                <CloseButton onClick={() => { closeModal(); reset(); }} />
             </Modal.Header>
-            <Modal.Body>
-                <Form>
+            <Form >
+                <Modal.Body>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        {(validation && !isValidTitle) ?
-                            <h5 style={{ color: "red" }}>
-                                Title can not be empty
-                            </h5>
-                            : null
-                        }
+                        {errors?.dishTitle && <h5 style={{ color: "red" }}>{errors?.dishTitle?.message}</h5>}
                         <Form.Control
+                            {...register("dishTitle", {
+                                required: "Title can not be empty"
+                            })}
                             value={dishTitle}
                             required min="1"
                             type="text"
                             placeholder="Dish title"
-                            onChange={e => dispatch({ type: 'setDishTitle', payload: e.target.value})}
-                            onBlur={validationTitle}
+                            onChange={e => dispatch({ type: 'setDishTitle', payload: e.target.value })}
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="">
-                        {(validation && !isValidDescription) ?
-                            <h5 style={{ color: "red" }}>
-                                Description must to have at least 100 characters
-                            </h5>
-                            : null
+                        {errors?.dishDescription &&
+                            <h5 style={{ color: "red" }}>{errors?.dishDescription?.message}</h5>
                         }
                         <Form.Control as="textarea" placeholder="Dish description..."
+                            {...register('dishDescription', {
+                                required: "Title can not be empty",
+                                minLength: {
+                                    value: 100, message: 'Description must to have at least 100 characters'
+                                }
+                            })}
                             value={dishDescription}
                             rows={5} min='100'
-                            onChange={e => dispatch({ type: 'setDishDescription', payload: e.target.value}) }
-                            onBlur={validationDescription}
+                            onChange={e => dispatch({ type: 'setDishDescription', payload: e.target.value })}
                         />
                     </Form.Group>
-                </Form>
-            </Modal.Body>
-            <Modal.Footer>
-                <Button variant="info" id='add_dish' onClick={addNewRecipe}>Add custom dish</Button>
-            </Modal.Footer>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button
+                        variant="info"
+                        id='add_dish'
+                        onClick={handleSubmit(() => { addNewRecipe(); reset(); })}>
+                        Add custom dish
+                    </Button>
+                </Modal.Footer>
+            </Form>
         </Modal>
     )
 }
