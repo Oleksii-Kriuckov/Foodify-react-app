@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Modal, Button, Form, CloseButton } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-export default AddRecipeModal;
+import { useModal } from "../Hooks/useModal";
 
-function AddRecipeModal(props) {
+export function ModalWindow(props) {
     const dispatch = useDispatch();
-    const favorites = useSelector(state => state.favorites.favoritesRecipes)
-    const [dishTitle, setDishTitle] = useState('');
-    const [dishDescription, setDishDescription] = useState('');
+    const showModal = useSelector(state => state.showHide.showModal)
+    const dishTitle = useSelector(state => state.formData.dishTitle)
+    const dishDescription = useSelector(state => state.formData.dishDescription)
+    const { addNewRecipe, closeModal } = useModal();
 
     const [isValidTitle, setIsValidTitle] = useState(false)
     const [isValidDescription, setIsValidDescription] = useState(false)
@@ -27,41 +28,14 @@ function AddRecipeModal(props) {
         setValidation(false);
     }
 
-    const addNewRecipe = () => {
-        setValidation(true);
-
-        if (isValidTitle && isValidDescription) {
-            const newRecipe = {
-                strMeal: dishTitle,
-                strInstructions: dishDescription,
-                idMeal: Date.now()
-            }
-            dispatch({ type: "AddRecipe", payload: newRecipe })
-            localStorage.data = JSON.stringify([...favorites, newRecipe]);
-            setDishTitle('');
-            setDishDescription('');
-            setValidation(false);
-            setIsValidTitle(false);
-            setIsValidDescription(false);
-            props.onHide();
-        }
-    }
-
-    const closeModal = () => {
-        setDishTitle('');
-        setDishDescription('');
-        setValidation(false);
-        setIsValidTitle(false);
-        setIsValidDescription(false);
-        props.onHide()
-    }
-
     return (
         <Modal
             {...props}
             dialogClassName="modal-50w"
             aria-labelledby="contained-modal-title-vcenter"
             centered
+            show={showModal}
+            onHide={closeModal}
         >
             <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
@@ -83,7 +57,7 @@ function AddRecipeModal(props) {
                             required min="1"
                             type="text"
                             placeholder="Dish title"
-                            onChange={e => setDishTitle(e.target.value)}
+                            onChange={e => dispatch({ type: 'setDishTitle', payload: e.target.value})}
                             onBlur={validationTitle}
                         />
                     </Form.Group>
@@ -97,7 +71,7 @@ function AddRecipeModal(props) {
                         <Form.Control as="textarea" placeholder="Dish description..."
                             value={dishDescription}
                             rows={5} min='100'
-                            onChange={e => setDishDescription(e.target.value)}
+                            onChange={e => dispatch({ type: 'setDishDescription', payload: e.target.value}) }
                             onBlur={validationDescription}
                         />
                     </Form.Group>

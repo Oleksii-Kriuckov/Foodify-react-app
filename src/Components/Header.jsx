@@ -1,13 +1,12 @@
 import React from 'react';
 import { Navbar, Container, Button } from 'react-bootstrap'
 import { NavLink, useMatch } from 'react-router-dom';
-import  ModalWindow  from './modal';
+import { ModalWindow } from './modal';
 import { useDispatch, useSelector } from 'react-redux';
 
 
 export const Header = () => {
     const matchFavour = useMatch('/favourites');
-    const [modalShow, setModalShow] = React.useState(false);
     const dispatch = useDispatch();
 
     return (
@@ -23,13 +22,13 @@ export const Header = () => {
                 <Button
                     variant='secondary'
                     id='open_modal'
-                    onClick={() => setModalShow(true)}
+                    onClick={() => dispatch({ type: "setShowModal", payload: true })}
                 >
                     Add custom dish
                 </Button>
                 : null
             }
-            <ModalWindow show={modalShow} onHide={() => setModalShow(false)} />
+            <ModalWindow  />
         </Navbar>
     )
 }
