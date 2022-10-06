@@ -9,8 +9,6 @@ const Main = ({ recipe, length }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
-
   return (
     <main
       className={length === 1 ? 'oneRecipeOnPageS' : ' favour' }

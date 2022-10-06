@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/header';
+import {Header} from './Components/Header';
 import { Route, Routes } from 'react-router-dom';
 import Random from './pages/Random';
 import { Favourites } from './pages/Favourites'

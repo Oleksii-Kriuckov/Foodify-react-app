@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 export default AddRecipeModal;
 
 function AddRecipeModal(props) {
-    const dispath = useDispatch();
-    const favourites = useSelector(state => state.favourites.favouritesRecipes);
+    const dispatch = useDispatch();
+    const favorites = useSelector(state => state.favorites.favoritesRecipes)
     const [dishTitle, setDishTitle] = useState('');
     const [dishDescription, setDishDescription] = useState('');
 
@@ -36,8 +36,8 @@ function AddRecipeModal(props) {
                 strInstructions: dishDescription,
                 idMeal: Date.now()
             }
-            dispath({ type: "AddRecipe", payload: newRecipe })
-            localStorage.data = JSON.stringify([...favourites, newRecipe]);
+            dispatch({ type: "AddRecipe", payload: newRecipe })
+            localStorage.data = JSON.stringify([...favorites, newRecipe]);
             setDishTitle('');
             setDishDescription('');
             setValidation(false);

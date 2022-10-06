@@ -1,21 +1,21 @@
 import React from 'react'
 import { Button, Modal, CloseButton } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-const ConfirmModal = ({onHide, recipe, ...props}) => {
-    const dispath = useDispatch();
+const ConfirmModal = ({ onHide, recipe, ...props }) => {
+    const dispatch = useDispatch();
 
     const removeRecipe = () => {
-        dispath({type: "RemoveRecipe", payload: recipe.idMeal})
+        dispatch({ type: "RemoveRecipe", payload: recipe.idMeal })
         let data = JSON.parse(localStorage.data)
         localStorage.data = JSON.stringify(data.filter(elem => elem.idMeal !== recipe.idMeal));
         onHide();
-      }
-      
+    }
+
     return (
         <div>
             <Modal {...props} onHide={onHide} >
-            <CloseButton className='mt-3 ms-auto me-3' onClick={onHide}/>
+                <CloseButton className='mt-3 ms-auto me-3' onClick={onHide} />
                 <Modal.Body className='fs-5'>Are you sure?</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={onHide}>

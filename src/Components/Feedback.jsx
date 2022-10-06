@@ -4,7 +4,7 @@ import { Alert } from 'react-bootstrap'
 const Feedback = () => {
     return (
         <Alert className='feedback' variant="success">
-            Add to favourites
+            Add to favorites
         </Alert>
     )
 }

@@ -1,18 +1,18 @@
 const defaultState = {
-    favouritesRecipes: []
+    favoritesRecipes: []
 }
 
-export const favouritesReducer = (state = defaultState, action) => {
+export const favoritesReducer = (state = defaultState, action) => {
     switch (action.type) {
         case "AddRecipe": 
-        return {...state, favouritesRecipes: [...state.favouritesRecipes, action.payload]}
+        return {...state, favoritesRecipes: [...state.favoritesRecipes, action.payload]}
 
         case "RemoveRecipe":
-        return {...state, favouritesRecipes: state.favouritesRecipes.filter(recipe => recipe.idMeal !== action.payload)}
+        return {...state, favoritesRecipes: state.favoritesRecipes.filter(recipe => recipe.idMeal !== action.payload)}
 
         case "SetFavourRecipes":
-        return {...state, favouritesRecipes: action.payload}
+        return {...state, favoritesRecipes: action.payload}
         
-        default: return state;
+        default: return state; 
     }
 }

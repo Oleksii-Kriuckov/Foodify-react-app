@@ -1,11 +1,15 @@
 import { createStore, combineReducers } from "redux";
 import { randomReducer } from "./RandomReducer";
-import { favouritesReducer } from "./FavoritesReducer";
+import { favoritesReducer } from "./FavoritesReducer";
 import {composeWithDevTools} from 'redux-devtools-extension'
+import { requestReducer } from "./RequestReducer";
+import { showHideReducer } from "./ShowHideReducer";
 
 const rootReducer = combineReducers({
     random: randomReducer,
-    favourites: favouritesReducer
+    favorites: favoritesReducer,
+    request: requestReducer,
+    showHide: showHideReducer
 })
 
 export const store = createStore(rootReducer, composeWithDevTools())

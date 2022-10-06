@@ -1,48 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios'
+import React, { useEffect} from 'react';
 import { Button } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Feedback from '../Components/Feedback';
 import { CSSTransition } from 'react-transition-group';
 import Styles from './styles/oneRecipeOnPageStyles.css'
 import './styles/transitionGroup.css'
+import useFetch from '../Hooks/useFetch';
+import { useFavorites } from '../Hooks/useFavorites';
 
 const Random = () => {
-  const dispath = useDispatch();
-  const favourites = useSelector(state => state.favourites.favouritesRecipes)
   const recipe = useSelector(state => state.random.recipe);
+  const showFeedBack = useSelector(state => state.showHide.showFeedBack);
+  const isResponse = useSelector(state => state.request.isResponse);
+  const isError = useSelector(state => state.request.isError);
 
-  const [showFeedBack, setShowFeedBack] = useState(false);
-  const [isResponce, setIsResponce] = useState(false);
-  const [isError, setIsError] = useState('');
-
-  async function fetchRandomRecipe() {
-    const responce = await axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
-      .then((responce) => {
-        dispath({ type: "renderRandomRecipe", payload: responce.data.meals[0] });
-        setIsResponce(true)
-      })
-      .catch((error) => {
-        setIsResponce(false);
-        setIsError(error.toJSON().message);
-      })
-  }
+  const { fetchRandomRecipe } = useFetch()
+  const { addFavorites } = useFavorites()
 
   useEffect(() => {
     fetchRandomRecipe();
   }, [])
 
-  const addFavourites = (id) => {
-    if (favourites.every(el => el.idMeal !== id)) {
-      setShowFeedBack(true)
-      dispath({ type: "AddRecipe", payload: recipe })
-      localStorage.data = JSON.stringify([...favourites, recipe]);
-      setTimeout(() => setShowFeedBack(false), 1000);
-    }
-  }
-
   return (<div className='d-flex flex-column align-items-center'>
-    {isResponce ?
+    {isResponse ?
       <>
         <main className='mx-auto oneRecipeOnPageS' styles={Styles}>
           <img src={recipe.strMealThumb} alt='dish' />
@@ -57,7 +37,7 @@ const Random = () => {
             <Feedback />
           </CSSTransition>
           <Button href="#" variant='danger' className='me-3' onClick={fetchRandomRecipe}>Skip</Button>
-          <Button variant='success' onClick={() => addFavourites(recipe.idMeal)}>Like</Button>
+          <Button variant='success' onClick={() => addFavorites(recipe.idMeal)}>Like</Button>
         </div>
       </>
       : <h1 style={{ paddingTop: 70 }}>{isError}</h1>}
