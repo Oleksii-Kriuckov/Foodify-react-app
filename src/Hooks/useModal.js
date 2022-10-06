@@ -8,9 +8,6 @@ export const useModal = () => {
     const favorites = useSelector(state => state.favorites.favoritesRecipes)
 
     const addNewRecipe = () => {
-        // setValidation(true);
-
-        // if (isValidTitle && isValidDescription) {
         const newRecipe = {
             strMeal: dishTitle,
             strInstructions: dishDescription,
@@ -21,17 +18,9 @@ export const useModal = () => {
         dispatch({ type: "setDishTitle", payload: '' })
         dispatch({ type: "setDishDescription", payload: '' })
         dispatch({ type: "setShowModal", payload: false })
-        //     setValidation(false);
-        //     setIsValidTitle(false);
-        //     setIsValidDescription(false);
-        // }
-        // console.log("addNewRecipe")
     }
 
     const closeModal = () => {
-        // setValidation(false);
-        // setIsValidTitle(false);
-        // setIsValidDescription(false);
         dispatch({ type: "setDishTitle", payload: '' })
         dispatch({ type: "setDishDescription", payload: '' })
         dispatch({ type: "setShowModal", payload: false })

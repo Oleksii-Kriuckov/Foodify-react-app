@@ -11,7 +11,7 @@ export function ModalWindow(props) {
     const dishDescription = useSelector(state => state.formData.dishDescription)
     const { addNewRecipe, closeModal } = useModal();
 
-    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm({mode: 'onSubmit'});
     return (
         <Modal
         {...props}
@@ -36,7 +36,7 @@ export function ModalWindow(props) {
                                 required: "Title can not be empty"
                             })}
                             value={dishTitle}
-                            required min="1"
+                            
                             type="text"
                             placeholder="Dish title"
                             onChange={e => dispatch({ type: 'setDishTitle', payload: e.target.value })}
@@ -54,7 +54,7 @@ export function ModalWindow(props) {
                                 }
                             })}
                             value={dishDescription}
-                            rows={5} min='100'
+                            rows={5} 
                             onChange={e => dispatch({ type: 'setDishDescription', payload: e.target.value })}
                         />
                     </Form.Group>
