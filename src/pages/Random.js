@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { Button, Alert } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import Feedback from '../Components/Feedback';
 import { CSSTransition } from 'react-transition-group';
 import Styles from './styles/oneRecipeOnPageStyles.css'
-import './styles/transitionGroup.css'
 import useFetch from '../Hooks/useFetch';
 import { useFavorites } from '../Hooks/useFavorites';
+import './styles/transitionGroup.css'
 
 const Random = () => {
   const recipe = useSelector(state => state.random.recipe);
