@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import Main from '../Components/main';
 import { useSelector, useDispatch } from 'react-redux';
-import './styles/favorites.css';
 import { Container } from 'react-bootstrap';
+import './styles/favorites.css';
 
-export const Favourites = () => {
+export const Favorites = () => {
   const favorites = useSelector(state => state.favorites.favoritesRecipes)
   const dispatch = useDispatch();
 

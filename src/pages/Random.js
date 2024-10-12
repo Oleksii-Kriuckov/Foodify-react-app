@@ -1,5 +1,5 @@
-import React, { useEffect} from 'react';
-import { Button } from 'react-bootstrap';
+import React, { useEffect } from 'react';
+import { Button, Alert } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import Feedback from '../Components/Feedback';
 import { CSSTransition } from 'react-transition-group';
@@ -33,11 +33,22 @@ const Random = () => {
         </main>
 
         <div className='buttons position-relative'>
-          <CSSTransition in={showFeedBack} timeout={700} classNames="alert" unmountOnExit>
-            <Feedback />
+          <CSSTransition
+            in={showFeedBack}
+            timeout={700}
+            classNames="alert"
+            unmountOnExit
+          >
+            <Alert className='feedback' variant="success">
+              Add to favorites
+            </Alert>
           </CSSTransition>
-          <Button href="#" variant='danger' className='me-3' onClick={fetchRandomRecipe}>Skip</Button>
-          <Button variant='success' onClick={() => addFavorites(recipe.idMeal)}>Like</Button>
+          <Button href="#" variant='danger' className='me-3' onClick={fetchRandomRecipe}>
+            Skip
+          </Button>
+          <Button variant='success' onClick={() => addFavorites(recipe.idMeal)}>
+            Like
+          </Button>
         </div>
       </>
       : <h1 style={{ paddingTop: 70 }}>{isError}</h1>}

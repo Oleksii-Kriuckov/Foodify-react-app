@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Container, Button } from 'react-bootstrap'
 import { NavLink, useMatch } from 'react-router-dom';
 import { ModalWindow } from './modal';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 
 export const Header = () => {
@@ -15,7 +15,7 @@ export const Header = () => {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Container className='d-flex mt-2 mt-sm-0 justify-content-md-center justify-content-sm-start' >
                     <NavLink to="/" >Random dish</NavLink>
-                    <NavLink to="/favourites">Favourites</NavLink>
+                    <NavLink to="/favorites">Favorites</NavLink>
                 </Container>
             </Navbar.Collapse>
             {matchFavour ?

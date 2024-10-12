@@ -3,7 +3,7 @@ import './App.css';
 import {Header} from './Components/Header';
 import { Route, Routes } from 'react-router-dom';
 import Random from './pages/Random';
-import { Favourites } from './pages/Favourites'
+import { Favorites } from './pages/Favorites'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Random />} />
-        <Route path="/favourites" element={<Favourites />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
   );
